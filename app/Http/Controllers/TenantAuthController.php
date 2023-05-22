@@ -29,7 +29,7 @@ class TenantAuthController extends Controller
     public function dashboard() {
 
         $users = tenant()->run(function() {
-            return User::all();
+            return User::whereNot('role','admin')->get();
         });
 
         $products = tenant()->run(function() {

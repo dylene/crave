@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -101,6 +102,7 @@ class RegisterController extends Controller
                     'email' => $request->email,
                     'mobile' => $request->mobile,
                     'role' => 'admin',
+                    'remember_token' => Str::random(30),
                     'password' => $request->password,
                 ]);
 
