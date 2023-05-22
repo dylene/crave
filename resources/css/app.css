@@ -1,0 +1,33 @@
+.navbar.bg-white .navbar-brand, .navbar.bg-white .navbar-brand a {
+    color: #ff5e00;
+    font-weight: 900;
+    font-family: sans-serif;
+}
+
+.navbar.bg-white .navbar-brand:hover, .navbar.bg-white .navbar-brand:focus, .navbar.bg-white .navbar-brand a:hover, .navbar.bg-white .navbar-brand a:focus {
+    color: #ff7423;
+}
+
+.app-brand-text {
+    color: #ff5e00 !important;
+    font-weight: 900 !important;
+    font-family: sans-serif;
+}
+
+.app-brand-logo.demo svg {
+    filter: hue-rotate(126deg);
+}
+
+.app-brand .layout-menu-toggle {
+    background-color: #ff5e00 !important;
+
+}
+
+.bg-menu-theme .menu-inner > .menu-item.active > .menu-link {
+    color: #ff5e00;
+    background-color: rgb(255 105 105 / 16%) !important;
+}
+
+.bg-menu-theme .menu-inner > .menu-item.active:before {
+    background: #ff5e00;
+}
