@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('tenant.index')
 
 @section('content')
 <div class="content-wrapper">
@@ -24,9 +24,9 @@
                     </div>
                     <div class="card-body">
                         <form action="{{ route('tenant.products.store') }}" enctype="multipart/form-data" method="post">
-                        
+
                             @csrf
-                            
+
                             <div class="mb-3">
                                 <label class="form-label" for="basic-icon-default-name">Name</label>
                                 <div class="input-group input-group-merge">

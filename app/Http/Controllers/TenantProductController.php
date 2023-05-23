@@ -19,9 +19,9 @@ class TenantProductController extends Controller
     {
 
         $products = tenant()->run(function($tenant) {
-        
+
             return Product::all();
-        
+
         });
 
         return view('tenant.product.index', compact('products'));
@@ -41,7 +41,7 @@ class TenantProductController extends Controller
      */
     public function store(Request $request)
     {
-     
+
         try {
             tenant()->run(function($tenant) use ($request) {
 
@@ -50,7 +50,7 @@ class TenantProductController extends Controller
                     'price' => ['required'],
                     'quantity' => ['required'],
                 ])->validate();
-        
+
                     // store new products
                 Product::create([
                     'name' => $request->name,
@@ -90,7 +90,7 @@ class TenantProductController extends Controller
         });
 
         return view('tenant.product.edit', ['product' => $product]);
-        
+
     }
 
     /**
@@ -98,7 +98,7 @@ class TenantProductController extends Controller
      */
     public function update(Request $request, $product)
     {
-             
+
         try {
             tenant()->run(function() use ($request, $product) {
 
@@ -107,7 +107,7 @@ class TenantProductController extends Controller
                     'price' => ['required'],
                     'quantity' => ['required'],
                 ])->validate();
-        
+
                     // store new products
                 $product = Product::findOrFail($product);
                 $product->name = $request->name;
@@ -118,7 +118,7 @@ class TenantProductController extends Controller
                 return true;
 
             });
-            return redirect()->route('tenant.products.index', tenant()->id)->with('success','New product successfully added!');
+            return redirect()->route('tenant.products.index', tenant()->id)->with('success','Product successfully updated!');
         } catch (\Throwable $exception) {
             return redirect()->route('tenant.products.create')->with('error', $exception->getMessage());
         }

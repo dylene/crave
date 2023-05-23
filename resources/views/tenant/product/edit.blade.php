@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('tenant.index')
 
 @section('content')
 <div class="content-wrapper">
@@ -24,7 +24,7 @@
                     </div>
                     <div class="card-body">
                         <form action="{{ route('tenant.products.update', $product->id) }}" enctype="multipart/form-data" method="post">
-                        
+
                             @csrf
                             @method('put')
 

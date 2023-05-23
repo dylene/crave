@@ -36,7 +36,7 @@
                                     <td>{{ $tenant->subscription->price }}</td>
                                     <td>{{ $tenant->subscription->type }}</td>
                                     <td>{{ $tenant->subscription->duration_in_days }}</td>
-                                    <td class="text-capitalize">{{ $tenant->paymentGateway->name }}</td>
+                                    <td class="text-capitalize">{{ $tenant->paymentGateway ? $tenant->paymentGateway->name :'free' }}</td>
                                     <td>{{ date('m-d-Y', strtotime($tenant->subscription->created_at)) }}</td>
                                     <td>
                                         {{-- <div class="d-flex align-items-center justify-content-center gap-1">
@@ -44,10 +44,10 @@
                                             <a class="btn btn-sm btn-info" href="{{ route('tenant.subscriptions.edit', ['tenant' => $tenant->id, 'tenant->subscription' => $tenant->subscription->id]) }}">Edit</a>
                                             <a class="btn btn-sm btn-danger" href="{{ route('tenant.subscriptions.destroy', ['tenant' => $tenant->id, 'tenant->subscription' => $tenant->subscription->id]) }}" onclick="event.preventDefault(); document.getElementById('delete-tenant-subscription-{{$tenant->subscription->id}}').submit();">Delete</a>
                                             <form action="{{ route('tenant.subscriptions.destroy', ['tenant' => $tenant->id, 'tenant->subscription' => $tenant->subscription->id]) }}" id="delete-tenant-subscription-{{ $tenant->subscription->id }}" method="post">
-                                                
+
                                                 @csrf
                                                 @method('delete')
-                                                
+
                                             </form>
                                         </div> --}}
                                     </td>
